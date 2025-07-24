@@ -3,9 +3,35 @@
 using namespace std;
 
 int singleNonDuplicate(vector<int>& nums) {
-        
+    int st=0;
+    int end=nums.size()-1;
+    while(st<=end){
+        int mid= st+(end-st)/2;
+
+        if(mid==0|| nums[mid]!=nums[mid-1] && nums[mid]!=nums[mid+1]){
+            return nums[mid];
+        }
+        if(mid%2==0){
+            if(nums[mid]==nums[mid-1]){
+                end=mid-2;
+            }else{
+                st=mid+2;
+            }
+        }else{
+            if(nums[mid]==nums[mid-1]){
+                st=mid+1;
+            }else{
+                end=mid-1;
+            }
+
+        }
+    }
+    return -1;        
 };
 
 int main(){
+    vector<int> nums={1};
+    int r=singleNonDuplicate(nums);
+    cout<<r<<endl;
     return 0;
 }
