@@ -18,7 +18,6 @@ int main(){
                freq--;
           }
      }
-     cout<<ans<<endl;
 
      return 0;
 }
